@@ -1,0 +1,19 @@
+<%= form_for @tournament do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :start_date %>
+  <%= f.date_select(:start_date, :start_year => 2000) %>
+
+  <%= f.label :end_date %>
+  <%= f.date_select(:end_date, :start_year => 2000) %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :host %>
+  <%= f.text_field :host %>
+
+  <%= f.submit 'Create Tournament' %>
+
+  <% end %>
