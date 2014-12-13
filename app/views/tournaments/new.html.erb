@@ -1,19 +1,31 @@
-<%= form_for @tournament do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
+<%= form_for @tournament, role: 'form' do |f| %>
+   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :start_date %>
-  <%= f.date_select(:start_date, :start_year => 2000) %>
+  <div class="form-group">
+    <%= f.label :start_date %>
+    <%= f.date_select(:start_date, :start_year => 2000, class: 'form-control') %>
+  </div>
 
-  <%= f.label :end_date %>
-  <%= f.date_select(:end_date, :start_year => 2000) %>
+  <div class="form-group">
+    <%= f.label :end_date %>
+    <%= f.date_select(:end_date, :start_year => 2000, class: 'form-control') %>
+  </div>
 
-  <%= f.label :location %>
-  <%= f.text_field :location %>
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= f.text_field :location, class: 'form-control' %>
+  </div>
 
-  <%= f.label :host %>
-  <%= f.text_field :host %>
+  <div class="form-group">
+    <%= f.label :host %>
+    <%= f.text_field :host, class: 'form-control' %>
+  </div>
 
-  <%= f.submit 'Create Tournament' %>
+    <%= f.submit 'Create Tournament' %>
 
-  <% end %>
+<% end %>
+</div>

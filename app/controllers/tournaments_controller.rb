@@ -1,10 +1,12 @@
 class TournamentsController < ApplicationController
   def index
     @tournaments = Tournament.all
+    @attendees = Attendee.all
   end
 
    def show
     @tournament = Tournament.find(params[:id])
+    @attendees = Attendee.all
   end
 
   def new

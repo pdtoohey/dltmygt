@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'tournaments#index'
 
   resources :tournaments, only: [:create, :new, :index, :show]
+  resources :attendees, only: [:create, :new, :show, :edit, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

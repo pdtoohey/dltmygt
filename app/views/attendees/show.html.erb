@@ -1,0 +1,7 @@
+<h2><%= @attendee.name %></h2>
+<h3><%= @attendee.home_town %></h3>
+
+<br><br>
+
+<%= link_to 'Edit attendee', "/attendees/#{@attendee.id}/edit" %>
+<%= link_to 'Delete this attendee', "/attendees/#{@attendee.id}", method: :delete %>
