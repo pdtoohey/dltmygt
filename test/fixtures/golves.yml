@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attendee_id: 1
+  tournament_id: 1
+  stroke_id: 1
+  stroke_score: 1
+
+two:
+  attendee_id: 1
+  tournament_id: 1
+  stroke_id: 1
+  stroke_score: 1

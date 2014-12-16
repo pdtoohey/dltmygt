@@ -11,6 +11,8 @@
   <th colspan="2">Day 2</th>
   <th colspan="2">Day 3</th>
 </tr>
+</table>
 
-
-
+<%= link_to 'Add Attendee', "/attendees/#{@tournament.id}/new" %>
+<%= link_to 'Edit tournament', "/tournaments/#{@tournament.id}/edit" %>
+<%= link_to 'Delete this tournament', "/tournaments/#{@tournament.id}", method: :delete %>

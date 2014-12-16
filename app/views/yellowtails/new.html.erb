@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col-md-4">
+  <%= form_for @yellowtail, role: 'form' do |f| %>
+    <div class="form-group">
+      <%= f.label :yellowtail_weight %>
+      <%= f.text_field :yellowtail_weight, placeholder: 'Weight in lbs.', class: 'form-control' %>
+    </div>
+
+      <%= f.submit 'Create Yellowtail' %>
+  <% end %>
+  </div>
+</div>

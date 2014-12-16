@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212215847) do
+ActiveRecord::Schema.define(version: 20141215012837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20141212215847) do
     t.integer "tournament_id"
   end
 
+  create_table "golves", force: true do |t|
+    t.integer  "attendee_id"
+    t.integer  "tournament_id"
+    t.integer  "stroke_id"
+    t.integer  "stroke_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tournaments", force: true do |t|
     t.string   "name"
     t.string   "location"
@@ -36,6 +45,16 @@ ActiveRecord::Schema.define(version: 20141212215847) do
     t.date     "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "yellowtails", force: true do |t|
+    t.integer  "attendee_id"
+    t.integer  "tournament_id"
+    t.integer  "fishing_day_id"
+    t.integer  "catch_order_id"
+    t.integer  "yellowtail_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

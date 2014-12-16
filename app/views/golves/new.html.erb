@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col-md-4">
+  <%= form_for @golf, role: 'form' do |f| %>
+    <div class="form-group">
+      <%= f.label :stroke_score %>
+      <%= f.text_field :stroke_score, class: 'form-control' %>
+    </div>
+
+      <%= f.submit 'Create Stroke Score' %>
+  <% end %>
+  </div>
+</div>

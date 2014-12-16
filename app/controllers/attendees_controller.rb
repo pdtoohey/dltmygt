@@ -15,6 +15,8 @@ class AttendeesController < ApplicationController
   def create
     @attendee = Attendee.new(attendee_params)
 
+    @attendee.tournaments << Tournament.find(params[:tournament_id])
+
     if @attendee.save
       redirect_to root_path
     else

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attendee_id: 1
+  tournament_id: 1
+  fishing_day_id: 1
+  catch_order_id: 1
+  yellowtail_weight: 1
+
+two:
+  attendee_id: 1
+  tournament_id: 1
+  fishing_day_id: 1
+  catch_order_id: 1
+  yellowtail_weight: 1
