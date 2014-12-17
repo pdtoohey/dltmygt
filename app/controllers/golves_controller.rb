@@ -3,6 +3,7 @@ class GolvesController < ApplicationController
   end
 
   def new
+    @attendee = Attendee.find(params[:attendee_id])
     @golf = Golf.new
   end
 

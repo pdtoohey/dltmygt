@@ -1,1 +1,13 @@
-<h1>Edit Attendee</h1>
+<h3><%= @attendee.name %></h3>
+
+<h4>Select New Tournament</h4>
+<div class="container">
+  <div class="col-md-4">
+  <%= form_for [@tournament, @attendee], role: 'form' do |f| %>
+    <div class "form-group">
+      <%= f.label :tournament %>
+      <%= select_tag :tournament_id, options_from_collection_for_select(Tournament.all, :id, :name) %>
+
+      <%= f.submit 'Attend Tournament' %>
+      <% end %>
+    </div>

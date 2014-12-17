@@ -1,7 +1,6 @@
 class TournamentsController < ApplicationController
   def index
     @tournaments = Tournament.all
-    @attendees = Attendee.all
   end
 
    def show

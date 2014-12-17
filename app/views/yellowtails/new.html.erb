@@ -1,15 +1,10 @@
 <div class="container">
   <div class="col-md-4">
-  <%= form_for @yellowtail, role: 'form' do |f| %>
-
-    <div class="form-group">
-      <%= f.label :attendee %>
-      <%= f.select :attendee_id , options_from_collection_for_select(Attendee.all, :id, :name), class: 'form-control' %>
-    </div>
+  <%= form_for [@attendee, @yellowtail], role: 'form' do |f| %>
 
     <div class="form-group">
       <%= f.label :fishing_day %>
-      <%= f.select :fishing_day, [["Day 1","day 1"],["Day 2","day 2"],["Day 3","day 3"]],{}, {class: 'form-control'} %>
+      <%= f.select :fishing_day, [["Day 1","day 1"],["Day 2","day 2"],["Day 3","day 3"]], {class: 'form-control'} %>
     </div>
 
     <div class="form-group">

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-4">
-  <%= form_for @attendee, role: 'form' do |f| %>
+  <%= form_for [@tournament, @attendee], role: 'form' do |f| %>
     <div class "form-group">
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -11,7 +11,7 @@
       <%= f.text_field :home_town, class: 'form-control' %>
     </div>
 
-      <% f.hidden_field_tag :tournament_id, :value => params[:tournament_id] %>
+      <%# f.hidden_field :tournament_id, :value => params[:tournament_id] %>
 
       <%= f.submit 'Create Attendee' %>
 

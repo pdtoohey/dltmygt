@@ -3,6 +3,11 @@
 <h2><%= @tournament.host %></h2>
 <h3><%= @tournament.location %></h3>
 
+<%= link_to 'Add Rookie', new_tournament_attendee_path(@tournament) %>
+<%= link_to 'Add Member', attendees_path %>
+<%= link_to 'Edit tournament', edit_tournament_path %>
+<%= link_to 'Delete this tournament', "/tournaments/#{@tournament.id}", method: :delete %>
+
 <table>
 <tr>
   <th>Attendee</th>
@@ -11,8 +16,19 @@
   <th colspan="2">Day 2</th>
   <th colspan="2">Day 3</th>
 </tr>
+
+  <% @tournament.attendees.each do |attendee| %>
+  <tr>
+    <td><%= link_to attendee.name, attendee_path(attendee.id) %> </td>
+    <td><%= attendee.home_town %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% end %>
+
 </table>
 
-<%= link_to 'Add Attendee', "/attendees/#{@tournament.id}/new" %>
-<%= link_to 'Edit tournament', "/tournaments/#{@tournament.id}/edit" %>
-<%= link_to 'Delete this tournament', "/tournaments/#{@tournament.id}", method: :delete %>

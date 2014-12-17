@@ -2,9 +2,4 @@
   <% @tournaments.each do |t| %>
     <h3><%= link_to t.name, tournament_path(t.id) %></h3>
   <% end %>
-
-  <% @attendees.each do |a| %>
-    <h3><%= link_to a.name, attendee_path(a.id) %></h3>
-  <% end %>
 </div>
-  

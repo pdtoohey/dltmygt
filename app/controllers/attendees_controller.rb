@@ -1,4 +1,8 @@
 class AttendeesController < ApplicationController
+  def index
+    @attendees = Attendee.all
+  end
+
   def show
     @attendee = Attendee.find(params[:id])
     @attendees = Attendee.all
@@ -8,18 +12,30 @@ class AttendeesController < ApplicationController
     @attendee = Attendee.find(params[:id])
   end
 
+  def update
+    @attendee = Attendee.find(params[:id])
+
+    if @attendee.update_attributes(attendee_params)
+      render :show
+    else
+      flash[:notice] = @attendee.errors.full_messages.to_sentance
+      render :edit
+    end
+  end
+
   def new
+    @tournament = Tournament.find(params[:tournament_id])
     @attendee = Attendee.new
-    @attendee.tournaments << Tournament.find(params[:tournament_id])
   end
 
   def create
+    @tournament = Tournament.find(params[:tournament_id])
     @attendee = Attendee.new(attendee_params)
-
-    @attendee.tournaments << Tournament.find(params[:tournament_id])
+     
+    @attendee.tournaments << @tournament
 
     if @attendee.save
-      redirect_to root_path
+      redirect_to tournament_path(@tournament)
     else
       flash[:notice] = @attendee.errors.full_messages.to_sentance
       render :new
@@ -36,6 +52,6 @@ class AttendeesController < ApplicationController
 private
 
   def attendee_params
-    params.require(:attendee).permit(:name, :home_town)
+    params.require(:attendee).permit(:name, :home_town, :tournament_id)
   end
 end

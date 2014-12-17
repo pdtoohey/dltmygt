@@ -4,10 +4,18 @@ Rails.application.routes.draw do
 
   get '/attendees/:id/new' => 'attendees#new'
 
+
+  resources :attendees, only: [:index,:edit, :destroy, :show]
   resources :tournaments, only: [:create, :new, :index, :show, :edit, :destroy]
-  resources :attendees, only: [:create, :show, :destroy]
-  resources :yellowtails, only: [:create, :new, :show, :destroy]
-  resources :golves, only: [:create, :new, :show, :destroy]
+    
+  resources :tournaments do
+    resources :attendees
+  end
+
+  resources :attendees do
+    resources :yellowtails, shallow: true
+    resources :golves, shallow: true
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

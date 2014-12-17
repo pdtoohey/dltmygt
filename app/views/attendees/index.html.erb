@@ -1,0 +1,5 @@
+<div class="text-center">
+  <% @attendees.each do |attendee| %>
+    <h3><%= link_to attendee.name, attendee_path(attendee.id) %></h3>
+  <% end %>
+</div>
