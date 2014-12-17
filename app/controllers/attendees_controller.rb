@@ -10,6 +10,7 @@ class AttendeesController < ApplicationController
 
   def new
     @attendee = Attendee.new
+    @attendee.tournaments << Tournament.find(params[:tournament_id])
   end
 
   def create

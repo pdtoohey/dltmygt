@@ -1,12 +1,23 @@
 <div class="container">
   <div class="col-md-4">
   <%= form_for @golf, role: 'form' do |f| %>
+
     <div class="form-group">
-      <%= f.label :stroke_score %>
-      <%= f.text_field :stroke_score, class: 'form-control' %>
+      <%= f.label :attendee %>
+      <%= f.select :attendee_id , options_from_collection_for_select(Attendee.all, :id, :name), class: 'form-control' %>
     </div>
 
-      <%= f.submit 'Create Stroke Score' %>
+    <div class="form-group">
+      <%= f.label :stroke_number %>
+      <%= f.select :stroke_number, [["Stroke No.1","stroke 1"],["Stroke No.2","stroke 2"],["Stroke No.3","stroke 3"],["Stroke No.4","stroke 4"]],{}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :stroke_score %>
+      <%= f.text_field :stroke_score, placeholder: 'Points for Stroke', class: 'form-control' %>
+    </div>
+
+      <%= f.submit 'Enter Golf Score' %>
   <% end %>
   </div>
 </div>

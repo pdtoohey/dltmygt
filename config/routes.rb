@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get '/attendees/:id/new' => 'attendees#new'
 
-  resources :tournaments, only: [:create, :new, :index, :show, :destroy]
-  resources :attendees, only: [:create, :new, :show, :destroy]
+  resources :tournaments, only: [:create, :new, :index, :show, :edit, :destroy]
+  resources :attendees, only: [:create, :show, :destroy]
   resources :yellowtails, only: [:create, :new, :show, :destroy]
   resources :golves, only: [:create, :new, :show, :destroy]
 

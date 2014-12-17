@@ -24,6 +24,10 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def edit
+    @tournament = Tournament.find(params[:id])
+  end
+
   def destroy
     @tournament = Tournament.find(params[:id])
     @tournament.destroy
