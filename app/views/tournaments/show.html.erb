@@ -3,12 +3,13 @@
 <h2><%= @tournament.host %></h2>
 <h3><%= @tournament.location %></h3>
 
-<%= link_to 'Add Rookie', new_tournament_attendee_path(@tournament) %>
-<%= link_to 'Add Member', attendees_path %>
-<%= link_to 'Edit tournament', edit_tournament_path %>
-<%= link_to 'Delete this tournament', "/tournaments/#{@tournament.id}", method: :delete %>
+<ul class="nav nav-tabs">
+  <li><%= link_to 'Add Attendee', new_tournament_attendee_path(@tournament) %></li>
+  <li><%= link_to 'Edit tournament', edit_tournament_path %></li>
+  <li><%= link_to 'Delete this tournament', "/tournaments/#{@tournament.id}", method: :delete %></li>
+</ul>
 
-<table>
+<table class="table table-hover">
 <tr>
   <th>Attendee</th>
   <th>Home Town</th>
@@ -17,10 +18,12 @@
   <th colspan="2">Day 3</th>
 </tr>
 
-  <% @tournament.attendees.each do |attendee| %>
+  <% @tournament.attendees.each do |attend| %>
   <tr>
-    <td><%= link_to attendee.name, attendee_path(attendee.id) %> </td>
-    <td><%= attendee.home_town %></td>
+    <td><%= link_to attend.name, attendee_path(attend.id) %> </td>
+    <td><%= link_to attend.name, new_tournament_attendee_yellowtail_path(attendee_id: attend.id, tournament_id: @tournament.id) %> </td>
+    <td><%= attend.home_town %></td>
+       
     <td></td>
     <td></td>
     <td></td>

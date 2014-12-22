@@ -3,31 +3,44 @@
 
 <br><br>
 
-<%= link_to 'Add Yellowtail', new_attendee_yellowtail_path(@attendee) %>
-<%= link_to 'Add Golf', new_attendee_golf_path(@attendee) %>
-<%= link_to 'Edit attendee', "/attendees/#{@attendee.id}/edit" %>
-<%= link_to 'Delete this attendee', "/attendees/#{@attendee.id}", method: :delete %>
+<ul class="nav nav-tabs">
+  <li><%#= link_to 'Add Yellowtail', new_attendee_yellowtail_path(@attendee) %></li>
+  <li><%#= link_to 'Add Golf', new_attendee_golf_path(@attendee) %></li>
+  <li><%= link_to 'Edit attendee', "/attendees/#{@attendee.id}/edit" %></li>
+  <li><%= link_to 'Delete this attendee', "/attendees/#{@attendee.id}", method: :delete %></li>
+</ul>
 
-<table>
+<table class="table table-hover">
 <tr>
   <th>Tournament</th>
-  <th>Overall Rank</th>
   <th colspan="2">Day 1</th>
   <th colspan="2">Day 2</th>
   <th colspan="2">Day 3</th>
+  <th>Stroke 1</th>
+  <th>Stroke 2</th>
+  <th>Stroke 3</th>
+  <th>Stroke 4</th>
+  <th>Pig</th>
+  <th></th>
 </tr>
+<br>
 
-  <% @attendee.tournaments.each do |tournament| %>
-  <tr>
-    <td><%= link_to tournament.name, tournament_path(tournament.id) %> </td>
-    <td><%=  %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <% end %>
-
-</table>
+<% @attendee.tournaments.each do |t| %>
+    <tr>      
+        <td><%= t.name %></td>
+          <% @yellows.tourn(t).each do |yellow| %> 
+        <td><%= yellow.weight %></td>
+          <% end %>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <% @golves.tourn(t).each do |golf| %>
+        <td><%= golf.stroke_score %></td>
+          <% end %>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= link_to 'New Yellowtail', new_tournament_attendee_yellowtail_path(attendee_id: @attendee.id, tournament_id: t.id) %></td>
+    </tr>
+<% end %>

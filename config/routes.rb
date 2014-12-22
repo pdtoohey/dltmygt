@@ -1,21 +1,17 @@
 Rails.application.routes.draw do
 
-  root 'tournaments#index'
+  root 'dltmygt#index'
 
-  get '/attendees/:id/new' => 'attendees#new'
-
-
-  resources :attendees, only: [:index,:edit, :destroy, :show]
-  resources :tournaments, only: [:create, :new, :index, :show, :edit, :destroy]
+  resources :attendees, only: [:show, :index]
     
   resources :tournaments do
-    resources :attendees
+    resources :attendees do
+      resources :yellowtails
+      resources :golves
+    end
   end
 
-  resources :attendees do
-    resources :yellowtails, shallow: true
-    resources :golves, shallow: true
-  end
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

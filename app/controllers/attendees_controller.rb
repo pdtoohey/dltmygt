@@ -5,7 +5,9 @@ class AttendeesController < ApplicationController
 
   def show
     @attendee = Attendee.find(params[:id])
-    @attendees = Attendee.all
+    @yellows = @attendee.yellowtails
+    @golves = @attendee.golves
+
   end
 
   def edit
@@ -52,6 +54,6 @@ class AttendeesController < ApplicationController
 private
 
   def attendee_params
-    params.require(:attendee).permit(:name, :home_town, :tournament_id)
+    params.require(:attendee).permit(:name, :title, :home_town, :tournament_id)
   end
 end

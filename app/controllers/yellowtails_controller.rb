@@ -1,5 +1,10 @@
 class YellowtailsController < ApplicationController
+  def index
+   
+  end
+
   def show
+    
   end
 
   def new
@@ -11,10 +16,11 @@ class YellowtailsController < ApplicationController
     @attendee = Attendee.find(params[:attendee_id])
     @yellowtail = Yellowtail.new(yellowtail_params)
 
-    @yellowtail.attendee << @attendee
+    @yellowtail.attendee = @attendee
 
+  
   if @yellowtail.save
-      redirect_to new_attendee_yellowtail_path(@attendee)
+      redirect_to attendee_path(@attendee)
     else
       flash[:notice] = @yellowtail.errors.full_messages.to_sentance
       render :new
@@ -24,6 +30,6 @@ class YellowtailsController < ApplicationController
 private
 
   def yellowtail_params
-    params.require(:yellowtail).permit(:yellowtail_weight, :fishing_day, :attendee_id)
+    params.require(:yellowtail).permit(:weight, :fishing_day, :catch_number, :attendee_id, :tournament_id)
   end
 end

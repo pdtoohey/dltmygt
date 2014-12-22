@@ -3,6 +3,11 @@
   <%= form_for [@attendee, @golf], role: 'form' do |f| %>
 
     <div class="form-group">
+      <%= f.label 'Tournament' %>
+      <%= f.select 'tournament_id', options_for_select(@attendee.tournaments.map{ |tournament| [tournament.name, tournament.id]} ), {class: 'form-control'}  %>
+    </div>
+    
+    <div class="form-group">
       <%= f.label :stroke_number %>
       <%= f.select :stroke_number, [["Stroke No.1","stroke 1"],["Stroke No.2","stroke 2"],["Stroke No.3","stroke 3"],["Stroke No.4","stroke 4"]], {class: 'form-control'} %>
     </div>

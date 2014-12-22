@@ -1,3 +1,14 @@
 body {
   padding-top: 60px;
 }
+
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url("../assets/sunrise.jpg");
+    background-position: 0% 25%;
+    background-size: 100%;
+    min-height: 400px;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}

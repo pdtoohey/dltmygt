@@ -1,3 +1,5 @@
+<h3>Add a Rookie</h3>
+
 <div class="container">
   <div class="col-md-4">
   <%= form_for [@tournament, @attendee], role: 'form' do |f| %>
@@ -6,15 +8,37 @@
       <%= f.text_field :name, class: 'form-control' %>
     </div>
 
+    <div class "form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+
     <div class="form-group">
       <%= f.label :home_town %>
       <%= f.text_field :home_town, class: 'form-control' %>
     </div>
 
-      <%# f.hidden_field :tournament_id, :value => params[:tournament_id] %>
-
-      <%= f.submit 'Create Attendee' %>
+      <%= f.submit 'Add Rookie to Tournament' %>
 
   <% end %>
   </div>
 </div>
+
+<h4><em>or</em></h4>
+
+<h3>Add a Member</h3>
+<!--
+<div class="container">
+  <div class="col-md-4">
+  <%#= form_for [@tournament, @attendee], role: 'form' do |f| %>
+    <div class "form-group">
+     <%#= f.label :attendee %>
+     <%#= f.select :attendee_id, 
+  options_from_collection_for_select(Attendee.all, :id, :name, :home_town), class: 'form-control'  %>
+    </div>
+
+      <%#= f.submit 'Add Member to Tournament' %>
+
+  <%# end %>
+  </div>
+</div>-->
